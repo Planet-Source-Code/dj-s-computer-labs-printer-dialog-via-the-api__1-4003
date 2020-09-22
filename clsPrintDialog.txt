@@ -1,0 +1,44 @@
+'
+' =======================================================================
+'
+' CLASS   : clsPrintDialog
+' PURPOSE : Show a dialog to select a printer and to set printer
+'           properties. Selected printer will be set to Printer object
+'           WITHOUT CHANGING DEFAULT PRINTER.
+'           Printer object could print to selected printer then.
+'           This class work like "MS Common Dialogs" ShowPrinter method,
+'           but it set Printer object without changing default printer.
+' HELP    : Look "MS Common Dialogs" OCX help, it applies also to this
+'           class. All Flags constants are supported.
+' NOTE    : Do you have found any bug or improvement ?
+'           Please let me know, that's why I'm sharing source code.
+' AUTHOR  : ___________________________________________________
+'            Luca Minudel                    software designer
+'            Italy Conegliano(TV)
+'            voice & fax                     +39 (0)438 412280
+'            e-mail                      luca.minudel@nline.it
+'            WWW                       (italian language used)
+'            http://www.geocities.com/SiliconValley/Vista/4041
+'
+' =======================================================================
+'
+
+Try the class with this code :
+
+Dim P As New clsPrintDialog
+  P.Flags = cdlPDPageNums + cdlPDDisablePrintToFile + cdlPDNoSelection
+  P.Min = 1
+  P.FromPage = 3
+  P.ToPage = 5
+  P.Max = 100
+  P.ShowPrinter
+  Debug.Print Printer.DeviceName
+  Debug.Print Printer.Copies
+  Debug.Print P.FromPage
+  Debug.Print P.ToPage
+  ' Write here Print Code with Printer Object...
+
+
+P.S. VB4 doesn't support public costant declaration in class module.
+     To use this code with VB4 remove Enum declarations and put
+     costant declarations in a .BAS module.
